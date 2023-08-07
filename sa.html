@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>DISASTER MANAGEMENT FORCE </title>
+   <style>
+     /* CSS styles for basic formatting */
+     body {
+       font-family: Arial, sans-serif;
+       margin: 0;
+       padding: 0;
+       background-color: #F7F7F7;
+     }
+     header {
+       background-color: rgb(28, 17, 78);
+       color: #FFF;
+       text-align: center;
+       padding: 20px;
+     }
+     h1 {
+       margin: 0;
+       font-size: 24px;
+     }
+     nav ul {
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+       background-color: rgb(182, 33, 33);
+       overflow: hidden;
+     }
+     nav li {
+       float: left;
+     }
+     nav li a {
+       display: block;
+       color: #FFF;
+       text-align: center;
+       padding: 14px 16px;
+       text-decoration: none;
+     }
+     nav li a:hover {
+       background-color: rgb(23, 23, 68);
+     }
+     main {
+       background-color: #FFF;
+       padding: 20px;
+     }
+     section {
+       margin-bottom: 20px;
+     }
+     h2 {
+       color: rgb(61, 45, 133);
+       margin-bottom: 10px;
+     }
+     p {
+       color: #666;
+       line-height: 1.5;
+     }
+     .terminal-container {
+       background-color: #222;
+       color: #FFF;
+       padding: 20px;
+       margin-bottom: 20px;
+       font-family: monospace;
+     }
+     .terminal-textarea {
+       width: 100%;
+       height: 200px;
+       background-color: #111;
+       color: #FFF;
+       border: none;
+       padding: 10px;
+     }
+     .sos-button {
+       display: inline-block;
+       background-color: #FF5555;
+       color: #FFF;
+       padding: 50px 100px;
+       text-decoration: none;
+       border-radius: 60px;
+       cursor: pointer;
+     }
+     .contact-info {
+       list-style-type: none;
+       padding: 0;
+     }
+     .contact-info li {
+       margin-bottom: 10px;
+     }
+   </style>
+   <script>
+     function sosButton() {
+       const options = {
+         enableHighAccuracy: true,
+         timeout: 5000,
+         maximumAge: 2000,
+       };
+       navigator.geolocation.getCurrentPosition(success, error, options);
+     }
+
+     function success(pos) {
+       const lat = pos.coords.latitude;
+       const lng = pos.coords.longitude;
+       const accuracy = pos.coords.accuracy;
+
+       const message = `
+         User coordinates:
+         Latitude: ${lat}
+         Longitude: ${lng}
+         Estimation accurate within ${Math.round(accuracy)} meters.`;
+
+       const email = "hackathon052@gmail.com";
+       const subject = "SOS Alert";
+       const body = encodeURIComponent(message);
+       const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
+
+       window.location.href = mailtoLink;
+
+       // Display success message
+       const successMessage = document.createElement("p");
+       successMessage.textContent = "Email sent successfully!";
+       document.body.appendChild(successMessage);
+     }
+
+     function error(err) {
+       if (err.code === 1) {
+         alert("Please allow geolocation access");
+       } else {
+         alert("Cannot get current location");
+       }
+     }
+   </script>
+</head>
+<body>
+  <header>
+    <h1>DISASTER MANAGEMENT FORCE</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about" onclick="openEditor()">About</a></li>
+      <li><a href="#resources">Resources</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="home">
+      <h2>EMERGENCY</h2>
+      <p>For Help please press the SOS Emergency Button below</p>
+      <button class="sos-button" onclick="sosButton()">SOS</button>
+    </section>
+
+    <section id="about">
+      <h2>About Us</h2>
+      <p>Welcome to Disaster Management Force - Empowering Communities in Disaster Management
+
+        At Disaster Management Force,
+         we are dedicated to safeguarding lives, protecting communities, and building resilience in the face of disasters.
+         With years of experience and a passionate team of experts, we strive to create a safer and more resilient world</p>
+      <ul class="contact-info">
+        
+      </ul>
+      <p>The rescue team is dedicated to providing assistance in various ways during disasters:</p>
+      <ul>
+        <li>Emergency medical support</li>
+        <li>Search and rescue operations</li>
+        <li>Providing food, water, and shelter</li>
+        <li>Evacuation assistance</li>
+        <li>Disaster recovery and rebuilding</li>
+      </ul>
+    </section>
+
+    <section id="resources">
+      <h2>Resources</h2>
+      <p>Here are some helpful resources for disaster management:</p>
+      <ul>
+        <li>Emergency contact numbers for your area</li>
+        <li>Local emergency shelters</li>
+        <li>First aid and CPR training organizations</li>
+        <li>Government disaster management websites</li>
+        <li>Disaster preparedness guides and checklists</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>If you have any questions or need assistance, please feel free to contact us:</p>
+      <ul class="contact-info">
+        <li>Email: hackathon052@gmail.com</li>
+        <li>Phone: 123-456-7890</li>
+        <li>Address: 123 Main Street, City, Country</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2023 Disaster Management Website. All rights reserved.
+  </footer>
+</body>
+</html>
+
+</body>
+</html>
